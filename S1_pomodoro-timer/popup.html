@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="phase-bar">
+      <button class="phase-btn active" data-phase="work">Pomodoro</button>
+      <button class="phase-btn" data-phase="short_break">Short Break</button>
+      <button class="phase-btn" data-phase="long_break">Long Break</button>
+    </div>
+
+    <div class="ring-container">
+      <svg class="progress-ring" width="200" height="200" viewBox="0 0 200 200">
+        <circle class="ring-track" cx="100" cy="100" r="88"/>
+        <circle class="ring-fill" id="ringFill" cx="100" cy="100" r="88"/>
+      </svg>
+      <div class="ring-overlay">
+        <div class="time-display" id="timeDisplay">25:00</div>
+        <div class="phase-label" id="phaseLabel">Focus Time</div>
+      </div>
+    </div>
+
+    <div class="dots" id="dots"></div>
+
+    <div class="session-count" id="sessionCount">Session 1</div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="resetBtn">Reset</button>
+      <button class="btn btn-primary" id="startPauseBtn">Start</button>
+      <button class="btn btn-secondary" id="skipBtn">Skip</button>
+    </div>
+
+    <div class="settings-toggle-row">
+      <button class="settings-toggle-btn" id="settingsToggleBtn">⚙ Settings</button>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel">
+      <div class="setting-row">
+        <span class="setting-label">Pomodoro (min)</span>
+        <input type="number" class="setting-input" id="inputWork" min="1" max="60" value="25">
+      </div>
+      <div class="setting-row">
+        <span class="setting-label">Short Break (min)</span>
+        <input type="number" class="setting-input" id="inputShort" min="1" max="30" value="5">
+      </div>
+      <div class="setting-row">
+        <span class="setting-label">Long Break (min)</span>
+        <input type="number" class="setting-input" id="inputLong" min="1" max="60" value="15">
+      </div>
+      <button class="save-btn" id="saveSettingsBtn">Save &amp; Reset</button>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
