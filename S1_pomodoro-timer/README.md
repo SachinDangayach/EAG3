@@ -1,39 +1,110 @@
-# Pomodoro Timer Chrome Extension
+# 🍅 Pomodoro Timer — Chrome Extension
 
-A simple and elegant Pomodoro Timer built as a Google Chrome Extension. It helps you stay focused and manage your time effectively using the Pomodoro Technique.
+> Stay focused. Work smarter. Rest better.
 
-## Features
+A clean, feature-rich Pomodoro Timer built as a **Google Chrome Extension** using Manifest V3. It helps you apply the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) to boost productivity and maintain a healthy work-rest balance.
 
-- **Customizable Intervals**: Set your preferred durations for Focus Time, Short Breaks, and Long Breaks.
-- **Visual Progress Ring**: A clean SVG-based progress ring shows how much time is left in the current phase.
-- **Session Tracking**: Keeps track of how many Pomodoro sessions you have completed. Automatically suggests a Long Break after a set number of sessions (default is 4).
-- **Background Execution**: Uses Chrome's Alarm API to keep track of time reliably even when the extension popup is closed.
-- **Notifications**: Alerts you with a system notification when it's time to take a break or get back to work.
-- **Persistent State**: Your timer's state and settings are saved automatically using `chrome.storage.local`, so you can close and reopen the extension without losing progress.
+---
 
-## Installation
+## ✨ Features
 
-1. Clone or download this repository.
-2. Open Google Chrome and navigate to `chrome://extensions/`.
-3. Enable **Developer mode** by toggling the switch in the top right corner.
-4. Click on **Load unpacked**.
-5. Select the directory containing the `manifest.json` file.
+| Feature | Description |
+|---|---|
+| **Visual Progress Ring** | SVG-based circular timer shows remaining time at a glance |
+| **Session Tracking** | Tracks completed Pomodoros; auto-suggests a Long Break after every 4 sessions |
+| **Phase Switching** | Instantly switch between Pomodoro, Short Break, and Long Break modes |
+| **Customizable Intervals** | Set your own durations for work, short break, and long break |
+| **Background Execution** | Uses Chrome's Alarm API — timer keeps running even when the popup is closed |
+| **System Notifications** | Get alerted when it's time to switch phases |
+| **Persistent State** | All timer state and settings survive popup close/reopen via `chrome.storage.local` |
 
-## Usage
+---
 
-- Click on the extension icon in your Chrome toolbar to open the timer.
-- Click **Start** to begin the focus timer.
-- Click **Pause** to temporarily stop the timer.
-- Click **Reset** to restart the current phase.
-- Click **Skip** to instantly complete the current phase and move to the next one.
-- Click **⚙ Settings** to adjust the duration for Work, Short Break, and Long Break intervals.
+## 🗂️ Project Structure
 
-## Project Structure
+```
+S1_pomodoro-timer/
+├── manifest.json        # Chrome Extension config (Manifest V3)
+├── background.js        # Service worker — alarms, state, notifications
+├── popup.html           # Extension UI markup
+├── popup.js             # UI logic, button handlers, background messaging
+├── styles.css           # Popup styles including the SVG progress ring
+├── icons/               # Extension icons (16×16 to 128×128)
+└── generate_icons.py    # Script to generate placeholder icons
+```
 
-- `manifest.json`: Configuration file for the Chrome extension (Manifest V3).
-- `background.js`: Service worker that manages alarms, timer state, and notifications in the background.
-- `popup.html`: The HTML structure for the extension's user interface.
-- `popup.js`: The frontend logic that handles UI updates, button clicks, and communication with the background script.
-- `styles.css`: Styles for the popup interface, including the progress ring.
-- `icons/`: Directory containing the extension icons in various sizes.
-- `generate_icons.py`: A Python script used to generate placeholder icons.
+---
+
+## 🚀 Installation
+
+1. **Clone or download** this repository:
+   ```bash
+   git clone <repository-url>
+   ```
+
+2. Open **Google Chrome** and go to:
+   ```
+   chrome://extensions/
+   ```
+
+3. Toggle on **Developer mode** (top-right corner).
+
+4. Click **Load unpacked**.
+
+5. Select the `S1_pomodoro-timer/` directory (the folder containing `manifest.json`).
+
+6. The Pomodoro Timer icon will appear in your Chrome toolbar. Pin it for easy access.
+
+---
+
+## 🎮 Usage
+
+Click the extension icon in your toolbar to open the timer.
+
+### Controls
+
+| Button | Action |
+|---|---|
+| **Start** | Begin the current phase countdown |
+| **Pause** | Temporarily halt the timer |
+| **Reset** | Restart the current phase from the beginning |
+| **Skip** | Jump to the next phase immediately |
+| **⚙ Settings** | Open the settings panel to adjust durations |
+
+### Default Intervals
+
+| Phase | Duration |
+|---|---|
+| Pomodoro (Focus) | 25 minutes |
+| Short Break | 5 minutes |
+| Long Break | 15 minutes |
+| Sessions before Long Break | 4 |
+
+### Settings
+
+Click **⚙ Settings** to customize each interval (in minutes). Hit **Save & Reset** to apply changes — the timer restarts with the new durations.
+
+---
+
+## 🛠️ Tech Stack
+
+- **JavaScript** (ES6+) — background service worker and popup logic
+- **HTML5 / CSS3** — popup UI with SVG progress ring animation
+- **Chrome Extension APIs** — `chrome.alarms`, `chrome.storage`, `chrome.notifications`
+- **Manifest V3** — latest Chrome Extension platform
+
+---
+
+## 📋 How the Pomodoro Technique Works
+
+1. Choose a task to work on.
+2. Set the timer for **25 minutes** and focus exclusively on the task.
+3. When the timer rings, take a **5-minute short break**.
+4. After **4 Pomodoros**, reward yourself with a **15-minute long break**.
+5. Repeat.
+
+---
+
+## 📄 License
+
+This project is open source. Feel free to use, modify, and distribute it.
