@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Summarizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">
+        <span class="logo-icon">&#x1F9E0;</span>
+        <span class="logo-text">Auto Summarizer</span>
+      </div>
+      <div class="page-title" id="pageTitle">Loading page...</div>
+    </div>
+
+    <div class="slider-section">
+      <div class="slider-header">
+        <span class="slider-label">Summary Length</span>
+        <span class="slider-value" id="sliderValue">30%</span>
+      </div>
+      <input
+        type="range"
+        id="lengthSlider"
+        class="slider"
+        min="10"
+        max="100"
+        step="5"
+        value="30"
+      >
+      <div class="slider-ticks">
+        <span>Brief</span>
+        <span>Full</span>
+      </div>
+    </div>
+
+    <button class="summarize-btn" id="summarizeBtn">
+      <span id="btnText">Summarize</span>
+      <span class="spinner hidden" id="spinner"></span>
+    </button>
+
+    <div class="output-section hidden" id="outputSection">
+      <div class="output-header">
+        <span class="output-label">Summary</span>
+        <span class="word-count" id="wordCount"></span>
+      </div>
+      <div class="output-text" id="outputText"></div>
+      <button class="copy-btn" id="copyBtn">Copy</button>
+    </div>
+
+    <div class="error-msg hidden" id="errorMsg"></div>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

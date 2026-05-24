@@ -16,6 +16,14 @@ Each session (`S1`, `S2`, ...) contains one focused project.
 
 ---
 
+### Session 2 — AI-Powered Chrome Extensions
+
+| Project | Description | Stack |
+|---|---|---|
+| [🧠 Auto Summarizer](./S2_Auto_Summarizer/) | Summarizes any webpage using Gemini AI with a slider to control summary length (10–100%) | JavaScript, Gemini API, Chrome APIs (MV3), HTML/CSS |
+
+---
+
 <!-- Add new sessions below in the same format:
 
 ### Session N — <Theme>
