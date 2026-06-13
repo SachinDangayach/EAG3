@@ -1,0 +1,17 @@
+# Scratch / test files
+test_gemini.py
+test_models.py
+
+# GCP service account credentials
+*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv/
+venv/
+
+# macOS
+.DS_Store
