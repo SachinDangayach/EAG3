@@ -24,6 +24,22 @@ Each session (`S1`, `S2`, ...) contains one focused project.
 
 ---
 
+### Session 3 — First Agent (Full-Stack)
+
+| Project | Description | Stack |
+|---|---|---|
+| [🤖 First Agent](./S3_First_Agent/) | Full-stack AI agent that answers math, currency, and unit conversion questions using a constrained LLM tool-call loop — React UI + FastAPI backend | Python, FastAPI, React (Vite), Gemini 2.5 Flash (Vertex AI) |
+
+---
+
+### Session 4 — MCP (Model Context Protocol)
+
+| Project | Description | Stack |
+|---|---|---|
+| [🔌 MCP First Pass](./S4_MCP_FP/) | Introduces the MCP protocol: a minimal FastMCP string-reverser server, a Python MCP client, and an agentic loop that routes tool calls through a local Ollama model | Python, MCP (FastMCP), Ollama (gemma4:26b) |
+
+---
+
 <!-- Add new sessions below in the same format:
 
 ### Session N — <Theme>

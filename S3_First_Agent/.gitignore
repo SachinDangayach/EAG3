@@ -1,0 +1,23 @@
+# Scratch / test files
+llm_func_call.py
+test_gemini.py
+test_models.py
+
+# GCP service account credentials
+*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv/
+venv/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# macOS
+.DS_Store
