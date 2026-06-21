@@ -6,7 +6,7 @@ from pathlib import Path
 
 # ---------------------------------------------------------------------------
 # SSL fix: point Python and gRPC at the macOS system CA bundle, which
-# includes the corporate (AMAT) root cert injected by the network proxy.
+# includes the corporate (Your ORG) root cert injected by the network proxy.
 # Without this, requests to Google APIs fail with CERTIFICATE_VERIFY_FAILED.
 # ---------------------------------------------------------------------------
 _SYS_CERT = "/private/etc/ssl/cert.pem"
@@ -16,15 +16,14 @@ os.environ.setdefault("GRPC_DEFAULT_SSL_ROOTS_FILE_PATH", _SYS_CERT)
 
 # google-genai is the new Vertex AI SDK (pip install google-genai).
 # It replaces the older google-generativeai package.
+from dotenv import load_dotenv
 from google import genai
 
-# ---------------------------------------------------------------------------
-# GCP project settings — the model runs on Vertex AI, not the public API,
-# so we need a project ID and a region instead of an API key.
-# ---------------------------------------------------------------------------
-PROJECT_ID = "gcp-prj-dev-gis-dia-01"
-LOCATION = "us-central1"
-MODEL_ID = "gemini-2.5-flash"
+load_dotenv()
+
+PROJECT_ID = os.environ["GCP_PROJECT_ID"]
+LOCATION = os.environ["GCP_LOCATION"]
+MODEL_ID = os.environ["GCP_MODEL_ID"]
 
 ROOT_DIR = Path(__file__).resolve().parent
 

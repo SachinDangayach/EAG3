@@ -7,17 +7,20 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-# SSL fix: point Python at the macOS system CA bundle (includes AMAT corporate cert).
+# SSL fix: point Python at the macOS system CA bundle (includes Your ORG corporate cert).
 _SYS_CERT = "/private/etc/ssl/cert.pem"
 os.environ.setdefault("SSL_CERT_FILE", _SYS_CERT)
 os.environ.setdefault("REQUESTS_CA_BUNDLE", _SYS_CERT)
 os.environ.setdefault("GRPC_DEFAULT_SSL_ROOTS_FILE_PATH", _SYS_CERT)
 
+from dotenv import load_dotenv
 from google import genai
 
-PROJECT_ID = "gcp-prj-dev-gis-dia-01"
-LOCATION = "us-central1"
-MODEL_ID = "gemini-2.5-flash"
+load_dotenv()
+
+PROJECT_ID = os.environ["GCP_PROJECT_ID"]
+LOCATION = os.environ["GCP_LOCATION"]
+MODEL_ID = os.environ["GCP_MODEL_ID"]
 
 ROOT_DIR = Path(__file__).resolve().parent
 json_files = sorted(ROOT_DIR.glob("*.json"))

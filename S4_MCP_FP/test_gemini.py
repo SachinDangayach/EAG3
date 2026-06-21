@@ -2,11 +2,14 @@ import os
 import sys
 from pathlib import Path
 
+from dotenv import load_dotenv
 from google import genai
 
-PROJECT_ID = "gcp-prj-dev-gis-dia-01"
-LOCATION = "us-central1"
-MODEL_ID = "gemini-2.5-flash"
+load_dotenv()
+
+PROJECT_ID = os.environ["GCP_PROJECT_ID"]
+LOCATION = os.environ["GCP_LOCATION"]
+MODEL_ID = os.environ["GCP_MODEL_ID"]
 
 ROOT_DIR = Path(__file__).resolve().parent
 
